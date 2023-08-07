@@ -20,27 +20,41 @@ In order to identify whether the model is a success or not, we will be evaluatin
     - *Interpretation:* 84% of the variation in Sale Price can be explained by the independent variables for testing data
 - **Polynomial Regression Model:**
     - Same independent variables utilized
-    - Training R2: 0.941
-    - Testing R2: 0.244
-    - *Interpretation:* The training R2 shows that the polynomial regression explains ~94% of the variance in Sale Price, while the testing R2 shows that the polynomial regression explains ~24% of the variance in unseen data, which is poor. Polynomial Regression model is overfitting the training data, overly complex
+    - Training R2: 0.95
+    - Testing R2: 0.75
+    - *Interpretation:* The training R2 shows that the polynomial regression explains ~95% of the variance in Sale Price, while the testing R2 shows that the polynomial regression explains ~75% of the variance in unseen data, which is poor. Polynomial Regression model is overfitting the training data, overly complex
 - **Ridge Regression Model:** 
     - Same independent variables utilized
-    - Train ridge R2 score: 0.895
-    - Test ridge R2 score: 0.858
-    - *Interpretation:* Train R2 score explains ~89.5% of the variance in the sale price while test R2 score explains ~85.8% of the variance in the sale price. The Ridge Regression Model is not overfitting and is robust and reliable in making predictions
+    - Train ridge R2 score: 0.92
+    - Test ridge R2 score: 0.89
+    - *Interpretation:* Train R2 score explains ~92% of the variance in the sale price while test R2 score explains ~89% of the variance in the sale price. The Ridge Regression Model is not overfitting and is robust and reliable in making predictions
 - **LASSO Regression Model:**
     - Same independent variables utilized
-    - Train lasso R2 score: 0.886
-    - Test lasso R2 score: 0.857
-    - *Interpretation:* Train R2 score explains ~88.5% of the variance in the sale price while test R2 score explains ~85.7% of the variance in the sale price. Lasso Regression Model is not overfitting and is robust and reliable in making predictions
+    - Train lasso R2 score: 0.94
+    - Test lasso R2 score: 0.83
+    - *Interpretation:* Train R2 score explains ~94% of the variance in the sale price while test R2 score explains ~83% of the variance in the sale price. Lasso Regression Model is not overfitting and is robust and reliable in making predictions
     
 # Visualizations
+![correlation_heatmap](https://github.com/bryan-ortiz0/ames_housing_analysis/assets/130245932/6076c060-036e-4a60-adeb-3ab00718dc37)
+
 - Chose the 4 variables with the highest coefficients to make plots on while taking a look at the neighborhoods these properties reside in
-    - Variables chosen: 
-        - overall_qual .15
-        - gr_liv_area .12
-        - year_built 3.2
-        - year_remod/add 2.1
+    - Variables chosen:
+        - overall_qual_exter_qual .83
+        - overall_qual .8
+        - gr_liv_area_garage_area .75
+        - exter_qual .71
+
+![r2_scores_polynomial](https://github.com/bryan-ortiz0/ames_housing_analysis/assets/130245932/7e1c2202-4daa-4bcd-834b-8ef361526b6d)
+
+The image above shows the training and testing R2 scores for Polynomial Features model
+
+![r2_scores_ridgecv](https://github.com/bryan-ortiz0/ames_housing_analysis/assets/130245932/997fb72a-5696-4bb4-91f6-6d9ff936684e)
+
+The image above shows the training and testing R2 scores for Ridge Regression model
+
+![r2_scores_lassocv](https://github.com/bryan-ortiz0/ames_housing_analysis/assets/130245932/f1dc299c-3745-48fd-9b43-b2bfe871d75b)
+
+The image above shows the training and testing R2 scores for Lasso Regression model
     
 # Data Dictionary
 https://jse.amstat.org/v19n3/decock/DataDocumentation.txt
@@ -49,10 +63,10 @@ https://jse.amstat.org/v19n3/decock/DataDocumentation.txt
 # Executive Summary
 The goal was to create a supervised machine learning model that accurately predicted the sale price of properties sold in Ames, Iowa with our success indicator being the R2 score for our models. 
 
-**The R2 score with the highest score suggests that Ridge Regression is best at predicting sale price** with Lasso regression being next (.001), Linear regression after then, and Polynomial regression being last.
+**The R2 score with the highest score suggests that for the models built, Ridge Regression is best at predicting sale price** with Lasso regression being next (.001), Linear regression after then, and Polynomial regression being last.
 
 # Recommendations
-- For corporations wanting to list houses onto the market, I would be best to utilize Ridge Regression Models for accurately predicting the Sale Price of a home
-- For sellers, it is best to consider the overall quality and remodel date to get the most bang for your buck
-- For buyers wanting a house or an investment, it is best to look into the year_built along with the location of the property. The northern part of Ames is developing and prices increase as the years go by in the more developing parts of the city
-- Model could be generalized universally but more recent data from Ames would be needed, perhaps another major city like Des Moines would make the model even more robust with better accuracy
+- For corporations wanting to list houses onto the market, it would be best to utilize the Ridge Regression model out of all the other models I built for accurately predicting the Sale Price of a home.
+- For sellers, it is best to consider the overall quality and remodel date to get the most bang for your buck.
+- For buyers wanting a house or an investment, it is best to look into the year_built along with the location of the property. The northern part of Ames is developing and prices increase as the years go by in the more developing parts of the city.
+- Model could be generalized universally but more recent data from Ames would be needed, perhaps another major city like Des Moines would make the model even more robust with better accuracy.
